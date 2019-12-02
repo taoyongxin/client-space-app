@@ -1,0 +1,202 @@
+/* 公共规约:所有样式以bl开头
+按模块和主键划分 */
+
+/* 全局设定 */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: #393D49;
+	outline: none;
+}
+a{
+	text-decoration: none;
+}
+ul{
+	list-style: none;
+}
+/* 布局设定 */
+
+/* flex布局水平居中对齐 */
+.bl-df-center{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+/* flex布局水平左对齐 */
+.bl-df-left{
+	display: flex;
+	justify-content: flex-start;
+	align-content: center;
+}
+
+/* flex布局水平右对齐 */
+.bl-df-right{
+	display: flex;
+	justify-content: flex-end;
+	align-content: center;
+}
+
+/* flex布局左右对齐 */
+.bl-df-between{
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+}
+/* 流式布局水平居中 */
+.bl-center{
+	display: block;
+	text-align: center;
+}
+
+/* 流式布局水平左对齐 */
+.bl-left{
+	display: block;
+	text-align: left;
+}
+
+/* 流式布局水平右对齐 */
+.bl-right{
+	display: block;
+	text-align: right;
+}
+
+/* 居中留白容器 */
+.bl-container{
+	width: 80%;
+	margin: 0 auto;
+}
+/* 栅格布局 */
+.bl-row{
+	display: flex;
+}
+.bl-col{
+	display: flex;
+	flex-direction: column;
+}
+.bl-col-12{
+	flex: 1 1 100%;
+}
+.bl-col-8{
+	flex: 1 1 66.6%;
+}
+.bl-col-6{
+	flex: 1 1 50%;
+}
+.bl-col-4{
+	flex: 1 1 33.3%;
+}
+.bl-col-3{
+	flex: 1 1 25%;
+}
+.bl-col-2{
+	flex: 1 1 16.6%;
+}
+
+/* 字体样式 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-weight: 500;
+}
+/* 标题样式 */
+.bl-title{
+	font-size: 21px;
+	font-weight: 700;
+	color: #333;
+}
+/* 子标题样式 */
+.bl-sub-title{
+	font-size: 13px;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+/* 备注字体 */
+.bl-meta{
+	font-size: 12px;
+	color: #969696;
+}
+
+/* 按钮基础样式 */
+.bl-btn{
+	border: none;
+	outline: none;
+	cursor: pointer;
+	white-space: nowrap;
+}
+/*圆角按钮*/
+.bl-btn-round{
+	border-radius: 20px;
+}
+/*圆形按钮*/
+.bl-btn-circle{
+	border-radius: 50%;
+}
+/*按钮默认主题*/
+.bl-btn-default{
+	color: #fff;
+	background-color:#009688 ;
+}
+/*按钮禁用主题*/
+.bl-btn-disable{
+	color: #fff;
+	background-color:#ccc ;
+}
+/*按钮警告主题*/
+.bl-btn-warning{
+	color: #fff;
+	background-color:#ffb800;
+}
+/* 按钮尺寸 */
+.bl-btn-large{
+	height: 40px;
+	width: 120px;
+}
+.bl-btn-nomal{
+	height: 35px;
+	width: 100px;
+}
+.bl-btn-min{
+	height: 30px;
+	width: 80px;
+}
+
+/*表单元素样式*/
+.bl-input-box{
+	display: block;
+	height: 40px;
+	outline: none;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+/* 卡片样式 */
+.bl-card{
+	display: flex;
+    flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+.bl-card-header{
+	flex: 0 0 30%;
+	
+}
+.bl-card-body{
+	flex: 0 0 70%;
+}
+hr{
+	color: #eee;
+	width: 80%;
+	margin: 0 auto;
+	
+}
+/*阴影样式*/
+.bl-shadow{
+	box-shadow: 0 5px 20px rgba(0,0,0,.1);
+}
