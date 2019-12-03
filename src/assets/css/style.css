@@ -15,6 +15,13 @@ a{
 ul{
 	list-style: none;
 }
+/*换肤*/
+.bl-header-background{
+	background-image: linear-gradient(160deg,rgba(0, 255, 213,0.5) 20%,rgba(0, 140, 255,0.5) 80%);
+}
+.bl-footer-background{
+	background-image: linear-gradient(160deg,rgba(0, 140, 255,0.5) 20%,rgba(0, 255, 213,0.5) 80%);
+}
 /* 布局设定 */
 
 /* flex布局水平居中对齐 */
@@ -93,7 +100,24 @@ ul{
 .bl-col-2{
 	flex: 1 1 16.6%;
 }
-
+.bl-coll-12{
+	flex: 0 0 100%;
+}
+.bl-coll-8{
+	flex: 0 0 66.6%;
+}
+.bl-coll-6{
+	flex: 0 0 50%;
+}
+.bl-coll-4{
+	flex: 0 0 33.3%;
+}
+.bl-coll-3{
+	flex: 0 0 25%;
+}
+.bl-coll-2{
+	flex: 0 0 16.6%;
+}
 /* 字体样式 */
 h1,
 h2,

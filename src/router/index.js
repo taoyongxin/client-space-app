@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Nav from '@/views/Nav.vue'
 import Index from '@/views/Index.vue'
-import File from '@/views/File.vue'
+import Notes from '@/views/Notes.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -19,8 +19,8 @@ const routes = [
 		component : Index
 	},
 	{
-		path: 'file',
-		component: File
+		path: 'notes',
+		component: Notes
 	}
 	]
  }
