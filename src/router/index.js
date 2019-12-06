@@ -3,12 +3,14 @@ import VueRouter from 'vue-router'
 import Nav from '@/views/Nav.vue'
 import Index from '@/views/Index.vue'
 import Notes from '@/views/Notes.vue'
+import Login from '@/views/Login.vue'
 import NotesDetail from '@/views/NotesDetail.vue'
 Vue.use(VueRouter)
 
 const routes = [
+	
   {
-    path: '/',
+   path: '/nav',
    component: Nav,
    children :[
    	{
@@ -20,7 +22,7 @@ const routes = [
 		component : Index
 	},
 	{
-		path: 'notes',
+		path: '/notes',
 		component: Notes
 	},
 	{
@@ -28,7 +30,11 @@ const routes = [
 		component: NotesDetail
 	}
 	]
- }
+ },
+     {
+     	path: '/',
+     	component: Login
+     }
 ]
 
 const router = new VueRouter({
