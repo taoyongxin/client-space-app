@@ -6,22 +6,23 @@
 					<span class="tab-item" :class="{active:signUpisActive}" @click="signUpclick">注册</span>
 				</div>
 				<div class="tab-signIn-box" v-show="signInistrue==true">
-					<input type="text" name="account" class="input-box" placeholder="手机号/邮箱/自定义账号" v-model="userDto.mobile">
+					<input type="text" name="account" class="input-box bl-shadow" placeholder="手机号/邮箱/自定义账号" v-model="userDto.mobile">
 					<p style="color: red; margin-left: 50px;" v-if="mobileistrue==true">!手机号不正确</p>
-					<input type="password" name="password" class="input-box" placeholder="密码" v-model="userDto.password">
+					<input type="password" name="password" class="input-box bl-shadow" placeholder="密码" v-model="userDto.password">
 					<p style="color: red; margin-left: 50px;" v-if="passwordistrue==true">!密码不正确</p>
 					
-						<input type="text" class="input-box-small" placeholder="验证码" @keyup="getcode()" v-model="userDto.code" />
+						<input type="text" class="input-box-small bl-shadow" placeholder="验证码" @keyup="getcode()" v-model="userDto.code" />
 						<img class="verify" @click.prevent="refresh" ref="codeImg" />
 					
 					<div class="tab-bottom">
-						<button class="bl-btn bl-btn-round bl-btn-nomal bl-btn-login "  @click="signIn(userDto)" v-if="iscode">登录</button>
-						<!-- <button class="bl-btn bl-btn-round bl-btn-nomal bl-btn-none " v-if="!iscode">登录</button> -->
+						<button class="bl-btn bl-btn-round bl-btn-nomal btn-login "  @click="signIn(userDto)" v-if="iscode">登录</button>
 					</div>
 				</div>
 				<div class="tab-signUp-box" v-show="signUpistrue==true">
-					<input type="text" name="account" class="input-box" placeholder="手机号" v-model="mobile" @keyup="getsignInmobile()">
-					<input type="code" name="code" class="input-box-small" placeholder="验证码" @keyup="getsignUpcode()" v-model="signUpcode">
+					<input type="text" name="account" class="input-box bl-shadow" placeholder="手机号" v-model="mobile" @keyup="getsignInmobile()">
+					
+					<input type="code" class="input-box-small bl-shadow" placeholder="验证码" @keyup="getsignUpcode()" v-model="code">
+					
 					<button @click="getCode" :disabled="codeDisabled" v-if="iscode1" class="bl-btn bl-btn-round bl-btn-nomal bl-btn-getcode" :class="{ 
 						btn:btnDisabled,
 						btnDisabled: btnDisabled}">
@@ -30,13 +31,13 @@
 					<button  v-if="!iscode1" class="bl-btn bl-btn-round bl-btn-nomal bl-btn-none1 btnDisabled" >
 						获取验证码
 					</button>
-					<input type="password" v-model="password" class="input-box" placeholder="密码">
+					<input type="password" v-model="password" class="input-box bl-shadow" placeholder="密码">
 					
-					<input type="e-mail" v-model="email" class="input-box" placeholder="邮箱">
+					<input type="e-mail" v-model="email" class="input-box bl-shadow" placeholder="邮箱">
 
 					<div class="tab-bottom">
 						<button class="bl-btn bl-btn-round bl-btn-nomal bl-btn-login " @click="signUp()" v-if="iscode2">注册</button>
-						<button class="bl-btn bl-btn-round bl-btn-nomal bl-btn-none " v-if="!iscode2">注册</button>
+						<!-- <button class="bl-btn bl-btn-round bl-btn-nomal bl-btn-none " v-if="!iscode2">注册</button> -->
 					</div>
 				</div>
 
@@ -60,7 +61,6 @@
 				countdown:10,
 				token: '',
 				code:'',
-				code1:'',
 				signUpcode:'',
 				signInisActive: true,
 				signUpisActive: false,
@@ -73,6 +73,7 @@
 				userDto: {
 					password: '',
 					mobile: '',
+					code : ''
 				},
 				mobileistrue:false,
 				passwordistrue:false
@@ -89,8 +90,8 @@
 				img.src = url;
 				console.log(res.headers);
 				//取得后台通过响应头返回的sessionId的值
-				this.token = res.headers['access-token'];
-				console.log(this.token);
+				this.token = res.headers['access-Token'];
+				alert(this.token)
 			});
 			setTimeout(() => {
 			  window.L2Dwidget.init({
@@ -136,13 +137,17 @@
 				        url: this.GLOBAL.baseUrl + '/user/login', //后端api
 				        data: {
 				          mobile: this.userDto.mobile,
-						  password: this.userDto.password
+						  password: this.userDto.password,
+						  code: this.userDto.code
 				        },
+						/* headers: {
+							'Access-Token': this.token //将token放在请求头带到后端
+						} */
 				      }).then(res=>{
 				        console.log(res);
 						if(res.data.msg=="成功"){
 							localStorage.setItem('user', JSON.stringify(res.data.data));
-							this.$router.push('/nav');
+							this.$router.push('/index');
 						}
 						if(res.data.msg=="账号错误"){
 							this.mobileistrue=true;
@@ -247,7 +252,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.container {
 		position: absolute;
 		top: 0;
@@ -353,6 +358,13 @@
 
 		to {}
 	}
+	@keyframes mythird {
+		from {				
+				opacity: 0;
+			}
+		
+			to {}
+		}
 
 	.tab-bottom {
 		height: 100px;
@@ -361,12 +373,13 @@
 		margin-top: 0px;
 	}
 
-	.bl-btn-login {
+	.btn-login {
 		color: #FFFFFF;
 		background-color: rgb(26, 160, 52);
 		margin-left: 50px;
 		margin-top: 30px;
 		cursor: pointer;
+		animation: mythird 2s;
 	}
 
 	.bl-btn-none {
@@ -399,6 +412,7 @@
 		flex: 1 1 50%;
 		height: 40px;	
 		margin-left: 50px;
+		margin-top: 10px;
 	}
 
 	.verify:hover {

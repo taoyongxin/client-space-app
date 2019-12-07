@@ -4,6 +4,10 @@ import Nav from '@/views/Nav.vue'
 import Index from '@/views/Index.vue'
 import Notes from '@/views/Notes.vue'
 import Login from '@/views/Login.vue'
+import BasicData from '@/views/BasicData.vue'
+import Safe from '@/views/Safe.vue'
+import Verified from '@/views/Verified.vue'
+import Personal from '@/views/Personal.vue'
 import NotesDetail from '@/views/NotesDetail.vue'
 Vue.use(VueRouter)
 
@@ -18,15 +22,37 @@ const routes = [
    		redirect : 'index'
    	},
 	{
-		path : 'index',
+		path : '/index',
 		component : Index
+	},
+	{
+		path : '/personal',
+		component : Personal,
+		/* children :[
+			{
+				path : '/',
+				redirect : 'basic'
+			},
+			{
+				path : 'basic',
+				component : BasicData
+			},
+			{
+				path : 'safe',
+				component : Safe
+			},
+			{
+				path : 'verified',
+				component : Verified
+			}
+		] */
 	},
 	{
 		path: '/notes',
 		component: Notes
 	},
 	{
-		path: 'notes/:id',
+		path: '/notes/:id',
 		component: NotesDetail
 	}
 	]

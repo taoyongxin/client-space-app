@@ -2,10 +2,10 @@
 	<div>
 		<div class="header bl-df-between bl-header-background">
 			<div class="left">
-				<router-link to="/"><p class="bl-title al-right">xxx的个人空间</p></router-link>
+				<router-link to="/personal"><p class="bl-title al-right">xxx的个人空间</p></router-link>
 			</div>
 			<div class="right bl-row ">
-				<router-link to="/">
+				<router-link to="/index">
 					<div class="bl-row al-left">
 						<img src="../assets/image/首页.png" class="icon" />
 						<h2>首页</h2>
@@ -17,19 +17,17 @@
 						<h2>日志</h2>
 					</div>
 				</router-link>
-				<router-link to="/">
+				<router-link to="/index">
 					<div class="bl-row al-left">
 						<img src="../assets/image/说说.png" class="icon" />
 						<h2>说说</h2>
 					</div>
 				</router-link>
 				<div @mouseleave="Socialcontactleave" @mouseenter="SocialcontactEnter">
-					<router-link to="/">
 						<div class="bl-row al-left">
 							<img src="../assets/image/社交.png" class="icon" />
 							<h2>社交</h2>
 						</div>
-					</router-link>
 					<div class="SocialContact-container bl-shadow bl-col" v-if="socialcontactistrue">
 						<div class="SocialContact-card bl-col">
 							<div class="bl-header-background SocialContact-card-header bl-col">
@@ -55,12 +53,10 @@
 				</div>
 
 				<div @mouseleave="Setupleave" @mouseenter="SetupEnter">
-					<router-link to="/notes">
 						<div class="bl-row al-left">
 							<img src="../assets/image/设置.png" class="icon" />
 							<h2>设置</h2>
 						</div>
-					</router-link>
 					<div class="SetUp-container bl-col" v-if="setupistrue">
 						<div class="Setup-label" :class="{ 'Setup-label-click': personalistrue === true }" @mouseleave="PersonalLeave" @mouseenter="PersonalEnter">个人资料</div>
 						<div class="Setup-label" :class="{ 'Setup-label-click': switchistrue === true }" @mouseleave="SwitchLeave" @mouseenter="SwitchEnter">切换账号</div>

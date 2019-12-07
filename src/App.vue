@@ -10,8 +10,3 @@
 <style>
 @import url("assets/css/style.css");
 </style>
-
-
-<style>
-@import url("assets/css/style.css");
-</style>
